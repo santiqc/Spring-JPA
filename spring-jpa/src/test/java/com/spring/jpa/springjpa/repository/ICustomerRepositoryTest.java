@@ -15,7 +15,7 @@ public class ICustomerRepositoryTest {
     ICustomerRepository customerRepository;
 
     @Test
-    public void saveCustomer(){
+    public void saveCustomer() {
         Customer customer = Customer.builder()
                 .firstName("Jaax")
                 .lastName("Team")
@@ -26,7 +26,7 @@ public class ICustomerRepositoryTest {
     }
 
     @Test
-    public void saveCustomerWithAddressEmbedded(){
+    public void saveCustomerWithAddressEmbedded() {
 
         Address address = Address.builder()
                 .city("Ambato")
@@ -45,36 +45,65 @@ public class ICustomerRepositoryTest {
     }
 
     @Test
-    public void findCustomerByFirstName(){
+    public void findCustomerByFirstName() {
         Customer customer = customerRepository.findByFirstName("Juan").get();
         System.out.println("customer = " + customer);
     }
 
     @Test
-    public void findAllCustomers(){
+    public void findAllCustomers() {
         List<Customer> customerList = customerRepository.findAll();
         System.out.println("customerList = " + customerList);
     }
 
 
     @Test
-    public  void findAllCustomersFirstNameContainig(){
+    public void findAllCustomersFirstNameContainig() {
         List<Customer> customerList = customerRepository.findByFirstNameContaining("Al");
         System.out.println("customerList = " + customerList);
     }
 
     @Test
-    public void findAllCustomersLastNameNotNull(){
+    public void findAllCustomersLastNameNotNull() {
         List<Customer> customerList = customerRepository.findByLastNameNotNull();
         System.out.println("customerList = " + customerList);
     }
 
     @Test
-    public void findAllCustomersByAddressCity(){
+    public void findAllCustomersByAddressCity() {
         List<Customer> customerList = customerRepository.findByAddress_City("Ambato");
         System.out.println("customerList = " + customerList);
     }
 
-  
+    @Test
+    public void getCustomerByEmailAddress() {
+        Customer customer = customerRepository.getCustomerByEmailAddress("juan@ejemplo.com");
+        System.out.println("customer = " + customer);
+    }
+
+    @Test
+    public void getCustomerFirstNameByEmailAddress() {
+        String firstName = customerRepository.getCustomerFirstNameByEmailAddress("juan@ejemplo.com");
+        System.out.println("firstName = " + firstName);
+    }
+
+    @Test
+    public void getCustomerByEmailAddressNative() {
+        Customer customer = customerRepository.getCustomerByEmailAddressNative("juan@ejemplo.com");
+        System.out.println("customer = " + customer);
+    }
+
+    @Test
+    public void getCustomerByEmailAddressNativeNamedParam() {
+        Customer customer = customerRepository.getCustomerByEmailAddressNativeNamedParam("juan@ejemplo.com");
+        System.out.println("customer = " + customer);
+    }
+
+    @Test
+    public void updateCustomerNameByEmail() {
+        customerRepository.updateCustomerNameByEmail("Juan", "juan@ejemplo.com");
+    }
+
+
 
 }
