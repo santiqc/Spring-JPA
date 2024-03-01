@@ -19,11 +19,14 @@ public class Customer {
 
     @Id
     @SequenceGenerator(
-            name = "customer_sequence",
-            sequenceName = "customer_sequence",
+            name = "customer_secuence",
+            sequenceName = "customer_secuence",
             allocationSize = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_secuence"
+    )
     private Long customerId;
     private String firstName;
     private String lastName;
