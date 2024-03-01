@@ -32,4 +32,8 @@ public class Customer {
             nullable = false
     )
     private String email;
+
+
+    @Embedded
+    private Address address;
 }
