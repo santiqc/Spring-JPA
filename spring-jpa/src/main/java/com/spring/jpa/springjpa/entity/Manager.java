@@ -27,4 +27,10 @@ public class Manager {
     private String firstName;
     private String lastName;
 
+    @OneToOne(
+            mappedBy = "manager",
+            fetch = FetchType.EAGER
+    )
+    private Local local;
+
 }
