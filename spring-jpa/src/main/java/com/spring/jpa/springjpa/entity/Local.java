@@ -28,8 +28,8 @@ public class Local {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            optional = false
+            fetch = FetchType.EAGER
+            /*optional = false*/
     )
     @JoinColumn(
             name = "manager_id",
@@ -38,7 +38,7 @@ public class Local {
     )
     private Manager manager;
 
-    @OneToMany(
+/*    @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
@@ -46,5 +46,5 @@ public class Local {
             name = "local_id",
             referencedColumnName = "localId"
     )
-    private List<Order> orderList;
+    private List<Order> orderList;*/
 }

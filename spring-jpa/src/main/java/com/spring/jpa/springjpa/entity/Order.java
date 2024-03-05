@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table( name = "tbl_order")
+@Table(name = "tbl_order")
 public class Order {
     @Id
     @SequenceGenerator(
@@ -26,4 +26,13 @@ public class Order {
     private Long orderId;
     private String description;
     private Double price;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "local_id",
+            referencedColumnName = "localId"
+    )
+    private Local local;
 }

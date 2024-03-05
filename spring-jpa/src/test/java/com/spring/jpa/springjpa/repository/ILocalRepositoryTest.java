@@ -62,7 +62,7 @@ class ILocalRepositoryTest {
                 .name("Cinema")
                 .floor("Third Floor")
                 .manager(manager)
-                .orderList(List.of(order,order2))
+                /*.orderList(List.of(order,order2))*/
                 .build();
 
         localRepository.save(local);
