@@ -1,7 +1,9 @@
 package com.spring.jpa.springjpa.repository;
 
+import com.spring.jpa.springjpa.entity.Customer;
 import com.spring.jpa.springjpa.entity.Local;
 import com.spring.jpa.springjpa.entity.Manager;
+import com.spring.jpa.springjpa.entity.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +20,7 @@ class ILocalRepositoryTest {
 
 
     @Test
-    public void saveLocal(){
+    public void saveLocal() {
         Manager manager = Manager.builder()
                 .firstName("Juan")
                 .lastName("Perez")
@@ -33,13 +35,13 @@ class ILocalRepositoryTest {
     }
 
     @Test
-    public void findAllLocals(){
+    public void findAllLocals() {
         List<Local> localList = localRepository.findAll();
         System.out.println("localList = " + localList);
     }
 
-/*    @Test
-    public void saveLocalWithOrders(){
+    @Test
+    public void saveLocalWithOrders() {
 
         Manager manager = Manager.builder()
                 .firstName("Juana")
@@ -60,11 +62,51 @@ class ILocalRepositoryTest {
                 .name("Cinema")
                 .floor("Third Floor")
                 .manager(manager)
-                //.orderList(List.of(order,order2))
+                .orderList(List.of(order,order2))
                 .build();
 
         localRepository.save(local);
+    }
+    @Test
+    public void findAllLocalsWithOrders(){
+        List<Local> localList = localRepository.findAll();
+        System.out.println("localList = " + localList);
+    }
 
+/*    @Test
+    public void saveLocalWithCustomer(){
+        Customer customer = Customer.builder()
+                .firstName("Carl")
+                .lastName("Jhonson")
+                .email("carl@ejemplo.com")
+                .build();
+        Customer customer2 = Customer.builder()
+                .firstName("Eddie")
+                .lastName("Pulaski")
+                .email("eddie@ejemplo.com")
+                .build();
+
+
+        Local local = Local.builder()
+                .name("Clukin ' Bell")
+                .floor("First Floor")
+                .customerList(List.of(customer,customer2))
+                .build();
+
+        localRepository.save(local);
+    }
+
+    @Test
+    public void findAllLocalsWithCustomers(){
+        List<Local> localList = localRepository.findAll();
+        System.out.println("localList = " + localList);
+    }
+
+    @Test
+    public void findCustomersByLocal(){
+        Local local = localRepository.findById(9L).get();
+        List<Customer> customerList = local.getCustomerList();
+        System.out.println("customerList = " + customerList);
     }*/
 
 
