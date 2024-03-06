@@ -38,6 +38,25 @@ public class Local {
     )
     private Manager manager;
 
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "local_customer_map",
+            joinColumns = @JoinColumn(
+                    name = "local_id",
+                    referencedColumnName = "localId"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "customer_id",
+                    referencedColumnName = "customerId"
+            )
+    )
+    private List<Customer> customerList;
+
+
+
 /*    @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
@@ -47,4 +66,6 @@ public class Local {
             referencedColumnName = "localId"
     )
     private List<Order> orderList;*/
+
+
 }

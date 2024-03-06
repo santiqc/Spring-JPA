@@ -67,14 +67,15 @@ class ILocalRepositoryTest {
 
         localRepository.save(local);
     }
+
     @Test
-    public void findAllLocalsWithOrders(){
+    public void findAllLocalsWithOrders() {
         List<Local> localList = localRepository.findAll();
         System.out.println("localList = " + localList);
     }
 
-/*    @Test
-    public void saveLocalWithCustomer(){
+    @Test
+    public void saveLocalWithCustomer() {
         Customer customer = Customer.builder()
                 .firstName("Carl")
                 .lastName("Jhonson")
@@ -90,24 +91,24 @@ class ILocalRepositoryTest {
         Local local = Local.builder()
                 .name("Clukin ' Bell")
                 .floor("First Floor")
-                .customerList(List.of(customer,customer2))
+                .customerList(List.of(customer, customer2))
                 .build();
 
         localRepository.save(local);
     }
 
     @Test
-    public void findAllLocalsWithCustomers(){
+    public void findAllLocalsWithCustomers() {
         List<Local> localList = localRepository.findAll();
         System.out.println("localList = " + localList);
     }
 
     @Test
-    public void findCustomersByLocal(){
+    public void findCustomersByLocal() {
         Local local = localRepository.findById(9L).get();
         List<Customer> customerList = local.getCustomerList();
         System.out.println("customerList = " + customerList);
-    }*/
+    }
 
 
 }
